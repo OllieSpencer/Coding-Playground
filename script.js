@@ -12,15 +12,9 @@ var speed = 50;
 
 //function for network error message
 const sent1 = [
-  //"LFG",
-  //"WYD",
-  "Linked",
-  "Let's link.",
-  //"Connection unsuccessful.",
-  //"Your connection is unstable.",
-  //"Out of range.",
-  //"Unexpected device.",
-  //"Bad connection.",
+  "Ashed",
+  "On one",
+  "Let's link",
 ];
 
 const buttonRetry = document.getElementById("button-network");
