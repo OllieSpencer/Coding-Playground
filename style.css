@@ -49,16 +49,17 @@ h5 {
 /* Style the card for the header/title card */
 .cardTitle {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 300px;
+  padding: 180px;
   border-radius: 1px 100px 1px 100px;
   background-image: url("https://cdn.glitch.global/c18721b2-6c9b-412b-9e5f-8acb99043630/000059.JPG?v=1741906394784");
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  font-family: "Ponomar", system-ui;
-  font-weight: 400;
+  font-family: "Big Shoulders Stencil", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
   font-style: normal;
-  color: white
+  color: #ffff99;
 }
 
 /* Style the card for phone error alerts (do not edit)*/
