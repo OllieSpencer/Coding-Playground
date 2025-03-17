@@ -1,8 +1,7 @@
-//make comments like this in the script.js file
-//by adding two slashes at the start of lines of code you can 'comment out' the code
-//it's helpful to write comments to keep track of what each line of code does
+// Define the index to keep track of the current option
+let currentIndex = 0;
 
-//a function to select random item from a list (do not edit)
+// Function to select random item from a list (do not edit)
 const buttonEmail = document.getElementById("poem");
 function getRandomFromList(list) {
   return list[Math.floor(Math.random() * list.length)];
@@ -10,45 +9,52 @@ function getRandomFromList(list) {
 var i = 0;
 var speed = 50;
 
-//function for network error message
+// Function for network error message
 const sent1 = [
   "Ashed",
   "On one",
   "Let's link",
 ];
 
+// Function to cycle through the network error messages
 const buttonRetry = document.getElementById("button-network");
 
 function changeResultsError() {
   const paragraph = document.getElementById("networkError");
-  paragraph.innerText = getRandomFromList(sent1);
+
+  // Set the text based on the current index in the options array
+  paragraph.innerText = sent1[currentIndex];
+
+  // Increment the index, and reset it if it reaches the end of the array
+  currentIndex = (currentIndex + 1) % sent1.length;
 }
 buttonRetry.addEventListener("click", changeResultsError);
-//end of network error function
+// End of network error function
 
-//function dropdown menu (do not edit this first part)
-function addEval(evalText) {
-  const subjectContent = document.getElementById("subject-content");
-  subjectContent.innerText = evalText;
-}
-//when selected in the dropdown menu, the x variables trigger the associated text. Edit the x variables (and make sure to also update them in the index.html file) and edit the associated text/emojis within the quotes
-//think about what use you might have for a dropdown menu: you could have someone select their 'mood' and give them an appropriate song, a bit of good or bad advice, an emoji, etc.
+document.getElementById("subject").addEventListener("change", dropdownFunction);
+
 function dropdownFunction() {
-  var x = document.getElementById("subject").value;
-  if (x === "waheed") {
-    addEval("150");
+  const x = document.getElementById("subject").value;
+  const subjectContent = document.getElementById("subject-content");
+
+  // Clear content if 'Select a slime' is selected
+  if (x === "Select a slime") {
+    subjectContent.innerHTML = '';  // Clear the content when 'Select a slime' is selected
+  } else if (x === "waheed") {
+    subjectContent.innerHTML = "<img src='https://cdn.glitch.global/c18721b2-6c9b-412b-9e5f-8acb99043630/waheed.jpg?v=1742188022270' alt='Waheed' />";
   } else if (x === "bobby") {
-    addEval("300");
+    subjectContent.innerHTML = "<img src='https://cdn.glitch.global/c18721b2-6c9b-412b-9e5f-8acb99043630/2A591A09-75E4-40DD-85A4-F1355E1C8BBA.JPG?v=1742187265104' alt='Bobby' />";
   } else if (x === "felicé") {
-    addEval("200");
+    subjectContent.innerHTML = "<img src='https://cdn.glitch.global/c18721b2-6c9b-412b-9e5f-8acb99043630/7BFA0DC2-D3DD-4447-A643-C6E49E699D13.JPG?v=1742188196845' alt='Felicé' />";
   } else if (x === "pk") {
-    addEval("50");
+    subjectContent.innerHTML = "<img src='https://cdn.glitch.global/c18721b2-6c9b-412b-9e5f-8acb99043630/000004.JPG?v=1742188652414' alt='PK' />";
   } else if (x === "geverson") {
-    addEval("500");
+    subjectContent.innerHTML = "<img src='https://cdn.glitch.global/c18721b2-6c9b-412b-9e5f-8acb99043630/IMG_8575.PNG?v=1742188981502' alt='Geverson' />";
   }
 }
-//start of haiku function
-//lists of variables: replace all of the 5 and 7 syllable constants in the two arrays below. The more constants you write, the more variety you will have in your poem
+
+// Start of haiku function
+// Lists of variables: replace all of the 5 and 7 syllable constants in the two arrays below. The more constants you write, the more variety you will have in your poem
 const fiveSyllables = [
   "red dogs",
   "chicken breast",
@@ -67,7 +73,8 @@ const sevenSyllables = [
   "how sweet it is boys",
   "fuckin toads",
 ];
-//code for haiku function (do not edit)
+
+// Code for haiku function (do not edit)
 const buttonHaiku = document.getElementById("button-haiku");
 function changeResults() {
   const paragraph = document.getElementById("haiku-1-1");
@@ -90,45 +97,44 @@ function changeResults() {
   paragraphNine.innerText = getRandomFromList(fiveSyllables);
 }
 buttonHaiku.addEventListener("click", changeResults);
-//end of haiku function
+// End of haiku function
 
-//start of search function
+// Start of search function
 const textWrapper = document.getElementById("text-wrapper");
 const textInput = document.getElementById("text-input");
-//search function constants
-//play with Google search function to come up with search terms most relevant to you. Think about how these search terms tell a story. Replace all of the placeholder text below (phrases in red font) with search terms of your own. If you keep the phrases organised alphabetically, you can ensure you have enough results for each word.
+
+// Search function constants
+// Play with Google search function to come up with search terms most relevant to you. Think about how these search terms tell a story. Replace all of the placeholder text below (phrases in red font) with search terms of your own. If you keep the phrases organised alphabetically, you can ensure you have enough results for each word.
 const words = [
-  "art of war free download",
-  "ask izzy",
-  "australian family law issues in the news",
-
-  "barrister vs lawyer australia",
-  "barrister vs solicitor",
-  "bulk billed therapy",
-
-  "can i seek to vary my family court order",
-  "ccs has no cctv",
-  "childcare how expensive",
-
-  "delete search history",
-  "delusional jealousy",
-  "dv stats australia",
-
-  "earliest memories as a child",
-  "emotional manipulation signs",
-
-  "fridge magnets",
+  "aren't here to fuck spiders",
+  "allow it",
+  "australian chalk",
+  "beers at state",
+  "barrister needed asap",
+  "bulk billed legal advice",
+  "clinic in progress",
+  "caught a snapper at the groyne",
+  "children not allowed",
+  "delete a mouse pillow",
+  "declans please",
+  "don't use all the white",
+  "easy money",
+  "emotional bean moment",
+  "freaks clean it up",
 ];
-//search function (do not edit)
+
+// Search function (do not edit)
 function changeText(e) {
   const searchWord = e.target.value.toLowerCase().trim();
   const resultWords = words.filter((word) =>
     word.toLowerCase().startsWith(searchWord)
   );
-  // clear exist words
+
+  // Clear existing words
   while (textWrapper.firstChild) {
     textWrapper.removeChild(textWrapper.firstChild);
   }
+
   if (searchWord != "") {
     for (var i = 0; i < resultWords.length; i++) {
       const line = document.createElement("div");
@@ -144,14 +150,14 @@ function changeText(e) {
   }
 }
 textInput.addEventListener("input", changeText);
-// end search function code
+// End search function code
 
-//start of code for poem
+// Start of code for poem
 
 const subjects =
-    "robots, pilgrims, broken families, displaced animals, right-wing militants, cyborgs".split(
-      ","
-    ),
+  "robots, pilgrims, broken families, displaced animals, right-wing militants, cyborgs".split(
+    ","
+  ),
   verbs =
     "wander,search, cross, kneel to pray in, avoid, survey, sneak across, hide in".split(
       ","
@@ -160,19 +166,21 @@ const subjects =
     "the barren plains,the wilted grasslands, vast wastelands,wildernesses unknown,languishing caravan parks, arid deserts, military bunkers, valleys of ash and bone".split(
       ","
     );
-// set up the counter
+
+// Set up the counter
 let counter = 0;
 
-// a function to pull a random item from a list
+// A function to pull a random item from a list
 function getRandomFromList2(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
-// add a line to the poem constructed from the lists of words
+
+// Add a line to the poem constructed from the lists of words
 function addLine(indent = false) {
-  // create the line
+  // Create the line
   const line = document.createElement("div");
   if (indent === true) {
-    // indent is true so add an indent class
+    // Indent is true so add an indent class
     line.classList.add("indent");
   }
   const text =
@@ -183,28 +191,32 @@ function addLine(indent = false) {
     getRandomFromList2(objects);
   const lineText = document.createTextNode(text);
   line.appendChild(lineText);
-  // get the poem
+
+  // Get the poem
   const poem = document.getElementById("poem");
   poem.appendChild(line);
 }
-// add a blank line to the poem
+
+// Add a blank line to the poem
 function addBlankLine() {
   const line = document.createElement("div");
   const poem = document.getElementById("poem");
   poem.appendChild(line);
 }
-// remove the first line from the poem
+
+// Remove the first line from the poem
 function removeFirstLine() {
   const poem = document.getElementById("poem");
   poem.removeChild(poem.childNodes[0]);
 }
-// implement the rules of the poem
+
+// Implement the rules of the poem
 function processPoem() {
   counter++;
   if (counter % 5 === 0) {
     addBlankLine();
   } else if (counter % 5 === 2 || counter % 5 === 4) {
-    // if the second or fourth line add the line with an indent
+    // If the second or fourth line, add the line with an indent
     addLine(true);
   } else {
     addLine();
