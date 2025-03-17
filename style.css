@@ -5,13 +5,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   margin: 2em;
-  background: #cbf1e4;
-  background-image: linear-gradient(
-    black,
-    pink,
-    #cbf1e4
-  ); /* change the background colour here - you can specify a solid colour, a gradiant or an image - you can find HEX codes for colours at https://htmlcolorcodes.com/ */
-  background-image: cover;
+  background: url("https://cdn.glitch.global/c18721b2-6c9b-412b-9e5f-8acb99043630/000007.JPG?v=1741744166235") no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* font used for dropdown menu - edit this*/
