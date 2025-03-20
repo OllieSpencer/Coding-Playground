@@ -169,19 +169,41 @@ h5 {
   background-color: #b0e9e5;
 }
 
-/* Style the card for the poem function */
 .cardPoem {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Card effect */
   padding: 10px;
   min-height: 375px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
   text-align: left;
-  background-color: #000000;
-  background-image: url("https://cdn.glitch.com/02600171-b43e-46dd-a21e-bfc0b9a82267%2FcatBG.gif?v=1620459338357"); /* replace this gif background with an image of your choosing or create your own gif at giphy.com using a plain background and adding effects or just delete the background-image property and you can set the background-color to what you want (it's currently black)*/
   color: #68d911;
   font-family: "Source Code Pro", monospace;
-  font-size: 14px; 
+  font-size: 14px;
+  overflow: hidden; /* Ensures video stays within bounds */
 }
+
+/* Video Background */
+.cardPoem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("your-video-thumbnail.jpg") center/cover no-repeat; /* Fallback image */
+  z-index: -1;
+}
+
+.cardPoem video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
 
 /* style button for remixing the haiku*/
 .buttonHaiku {
