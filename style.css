@@ -176,7 +176,7 @@ h5 {
   min-height: 375px;
   border-radius: 10px;
   text-align: left;
-  color: #68d911;
+  color: black;
   font-family: "Source Code Pro", monospace;
   font-size: 14px;
   overflow: hidden; /* Ensures video stays within bounds */
